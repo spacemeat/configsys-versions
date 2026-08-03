@@ -7,11 +7,13 @@
     // `version-floors:` PATCHES the floor onto a component's existing cargo/go requirement without
     // redefining it, and only where that requirement exists — so a floor for a component you don't
     // build from source is simply unused. Covers core source bindings and the configsys-source
-    // recipes. (jq has no floor — a C build with no toolchain version to derive.)
+    // recipes. (C builds — btop, fastfetch, htop, tmux, jq, mtr — have no toolchain floor to derive.)
     version-floors: {
         // Rust (cargo)
         ripgrep:    { cargo: ">=1.85" }
         just:       { cargo: ">=1.89.0" }
+        nushell:    { cargo: ">=1.95.0" }
+        yazi:       { cargo: ">=1.95.0" }
         // Go
         fzf:        { go: ">=1.23.0" }
         lazygit:    { go: ">=1.25.0" }
@@ -19,5 +21,8 @@
         lazydocker: { go: ">=1.22" }
         lazysql:    { go: ">=1.23" }
         k9s:        { go: ">=1.25.8" }
+        opentofu:   { go: ">=1.26.5" }
+        bazelisk:   { go: ">=1.24.0" }
+        grpcurl:    { go: ">=1.21" }
     }
 }
