@@ -6,12 +6,18 @@
     //
     // `version-floors:` PATCHES the floor onto a component's existing cargo/go requirement without
     // redefining it, and only where that requirement exists — so a floor for a component you don't
-    // build from source is simply unused. Covers core source bindings (fzf, …) and the
-    // configsys-source recipes (ripgrep, lazygit, superfile).
+    // build from source is simply unused. Covers core source bindings and the configsys-source
+    // recipes. (jq has no floor — a C build with no toolchain version to derive.)
     version-floors: {
-        fzf:       { go: ">=1.23.0" }     // core source binding
-        ripgrep:   { cargo: ">=1.85" }    // configsys-source recipe
-        lazygit:   { go: ">=1.25.0" }     // configsys-source recipe
-        superfile: { go: ">=1.25.7" }     // configsys-source recipe
+        // Rust (cargo)
+        ripgrep:    { cargo: ">=1.85" }
+        just:       { cargo: ">=1.89.0" }
+        // Go
+        fzf:        { go: ">=1.23.0" }
+        lazygit:    { go: ">=1.25.0" }
+        superfile:  { go: ">=1.25.7" }
+        lazydocker: { go: ">=1.22" }
+        lazysql:    { go: ">=1.23" }
+        k9s:        { go: ">=1.25.8" }
     }
 }
