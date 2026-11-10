@@ -5,7 +5,8 @@
     // (`tools/versionsweep.py --derive`), so a component's toolchain minimum — a Rust MSRV, a
     // go.mod `go` directive — stays current WITHOUT a configsys or plugin release.
     //
-    // A floor only TIGHTENS an existing requirement (it never creates one), so it is INERT unless
+    // A floor only SETS the version of an existing requirement (it never creates one; a layer above
+    // this plugin can still override it), so it is INERT unless
     // you actually build that component from source: the floor for a configsys-source recipe does
     // nothing until configsys-source adds that source binding, and the floors for core source
     // bindings (fzf, …) apply only if you pin them `via: source`. That's why this is safe to load
